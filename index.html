@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作業6</title>
+    <style>
+        #myAnimation {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            position: absolute;
+            display: none;
+            animation: myAnimation 1s forwards;
+        }
+
+        .animate {
+            animation: none;
+        }
+
+        @keyframes myAnimation {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            50% {
+                transform: scale(1.2);
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .animate {
+            animation: none;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="myButton">Nhấn vào đây</button>
+    <div id="myAnimation"></div>
+
+    <script>
+        const button = document.querySelector('#myButton');
+        const animation = document.querySelector('#myAnimation');
+
+        button.addEventListener('click', () => {
+            animation.style.display = 'block';
+            animation.classList.add('animate');
+            setTimeout(() => {
+                animation.style.display = 'none';
+                animation.classList.remove('animate');
+            }, 1000);
+        });
+    </script>
+</body>
+
+</html>
